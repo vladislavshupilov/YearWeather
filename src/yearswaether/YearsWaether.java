@@ -46,8 +46,27 @@ public class YearsWaether {
                 case 10: min = -10; max = 5; dayInMonth = 30; break;
                 case 11: min = -15; max = 0; dayInMonth = 31; break;
             }
-
-            System.out.println("");
+            yearsWaether[i] = new int [dayInMonth];
+            System.out.printf("%9s", month.values()[i]+":");
+            int sum = 0;
+            for (int j = 0; j < yearsWaether[i].length; j++) {
+                yearsWaether[i][j] = random.nextInt(max - min + 1)+min;
+                System.out.printf("%5d", yearsWaether[i][j]);
+                sum += yearsWaether[i][j];
+            }
+            
+            sum /= dayInMonth;
+            if (dayInMonth == 31){
+                System.out.printf(" |средняя температура за месяц = "+ sum);
+            }
+            else if (dayInMonth == 30){
+                System.out.printf("      |средняя температура за месяц = "+ sum);
+            }
+            else if (dayInMonth == 28){
+                System.out.printf("                |средняя температура за месяц = "+ sum);
+            }
+            
+            System.out.println("");     
         }
     }
     
